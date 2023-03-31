@@ -13,7 +13,7 @@ const Map<String, AuthError> authErrorMapping = {
 };
 
 @immutable
-abstract class AuthError {
+ class AuthError {
   final String dialogTitle;
   final String dialogText;
 
@@ -41,7 +41,7 @@ class AuthErrorUnknown extends AuthError {
 class AuthErrorNoCurrentUser extends AuthError {
   const AuthErrorNoCurrentUser()
       : super(
-          dialogText: "There is no user present",
+          dialogText: "There is no such user present in db",
           dialogTitle: "No Current User",
         );
 }

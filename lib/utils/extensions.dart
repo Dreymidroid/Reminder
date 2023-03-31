@@ -1,3 +1,8 @@
+import 'dart:typed_data';
+
+extension ToInt on bool {
+  int toInteger() => this ? 1 : 0;
+}
 
 extension FirebaseAuthParse on String {
   String get processedText {
@@ -20,4 +25,8 @@ extension ToTitleCase on String {
     }
     return capitalized;
   }
+}
+
+extension ToList on String {
+  Uint8List toUint8List() => Uint8List.fromList(codeUnits);
 }

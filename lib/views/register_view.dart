@@ -3,6 +3,8 @@ import 'package:first/extensions/if_debugging.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../state/app_state.dart';
+
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
 
@@ -19,13 +21,13 @@ class _RegisterViewState extends State<RegisterView> {
   void initState() {
     super.initState();
     emailCtrl = TextEditingController(
-      text: 'dadefemiwa,com'.ifDebugging,
+      text: 'dadefemiwa@gmail.com'.ifDebugging,
     );
     passwordCtrl = TextEditingController(
-      text: 'dadefemiwa,com'.ifDebugging,
+      text: 'dadefemiwa@gmail.com'.ifDebugging,
     );
     confirmPasswordCtrl = TextEditingController(
-      text: 'dadefemiwa,com'.ifDebugging,
+      text: 'dadefemiwa@gmail.com'.ifDebugging,
     );
   }
 
@@ -91,7 +93,9 @@ class _RegisterViewState extends State<RegisterView> {
           ),
           TextButton(
             onPressed: () {
-              context.read<AppState>().goTo(AppScreen.login);
+              context.read<AppState>().goTo(
+                    AppScreen.login,
+                  );
             },
             child: const Text('Already Registered ?'),
           )

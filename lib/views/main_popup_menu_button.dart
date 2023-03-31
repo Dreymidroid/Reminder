@@ -5,6 +5,7 @@ import 'package:first/dialogs/log_out_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../dialogs/delete_account_dialog.dart';
+import '../state/app_state.dart';
 
 enum MenuAction { logout, deleteAccount }
 
@@ -19,13 +20,13 @@ class MainPopupMenuButton extends StatelessWidget {
           case MenuAction.logout:
             final shouldLogOut = await showLogOutDialog(context);
             if (shouldLogOut) {
-              context.read<AppBloc>().logOut();
+              context.read<AppState>().logOut();
             }
             break;
           case MenuAction.deleteAccount:
             final shouldDeleteAcc = await showDeleteAccountDialog(context);
             if (shouldDeleteAcc) {
-              context.read<AppBloc>().deleteAccount();
+              context.read<AppState>().deleteAccount();
             }
             break;
         }

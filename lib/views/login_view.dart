@@ -2,6 +2,8 @@ import 'package:first/extensions/if_debugging.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../state/app_state.dart';
+
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
@@ -17,10 +19,10 @@ class _LoginViewState extends State<LoginView> {
   void initState() {
     super.initState();
     emailCtrl = TextEditingController(
-      text: 'dadefemiwa,com'.ifDebugging,
+      text: 'dadefemiwa@gmail.com'.ifDebugging,
     );
     passwordCtrl = TextEditingController(
-      text: 'dadefemiwa,com'.ifDebugging,
+      text: 'dadefemiwa@gmail.com'.ifDebugging,
     );
   }
 
@@ -61,15 +63,17 @@ class _LoginViewState extends State<LoginView> {
               final email = emailCtrl.text;
               final password = passwordCtrl.text;
               context.read<AppState>().login(
-                email: email,
-                password: password,
-              );
+                    email: email,
+                    password: password,
+                  );
             },
             child: const Text('Log In'),
           ),
           TextButton(
             onPressed: () {
-              context.read<AppState>().goTo(AppScreen.register);
+              context.read<AppState>().goTo(
+                    AppScreen.register,
+                  );
             },
             child: const Text('Not Registered ?'),
           )
@@ -78,4 +82,3 @@ class _LoginViewState extends State<LoginView> {
     );
   }
 }
-
